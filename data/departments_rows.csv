@@ -1,0 +1,7 @@
+id,name,code,head_email,m365_group_id,m365_group_email,teams_team_id,sharepoint_url,default_channels,created_at,updated_at
+7f9488ce-daa7-4542-a554-afa2b92b3044,Sales,SLS,sales.manager@tanisitech.onmicrosoft.com,,sales@tanisitech.onmicrosoft.com,,,,2026-04-30 10:59:05.504298+00,2026-04-30 10:59:05.504298+00
+983d5f2f-ce0b-4dc3-8c08-aa2f19c2de4a,IT,IT,it.manager@tanisitech.onmicrosoft.com,,it@tanisitech.onmicrosoft.com,,,,2026-04-30 10:59:05.504298+00,2026-04-30 10:59:05.504298+00
+b285382f-cbd2-42c3-b565-1045c30b281a,Engineering,ENG,eng.manager@tanisitech.onmicrosoft.com,,engineering@tanisitech.onmicrosoft.com,,,,2026-04-30 10:59:05.504298+00,2026-04-30 10:59:05.504298+00
+bc467008-75dc-465b-a07b-9c8207c6cd9f,Marketing,MKT,marketing.manager@tanisitech.onmicrosoft.com,,marketing@tanisitech.onmicrosoft.com,,,,2026-04-30 10:59:05.504298+00,2026-04-30 10:59:05.504298+00
+c31ed290-1425-44f6-a1bb-942e1460cd34,Finance,FIN,finance.manager@tanisitech.onmicrosoft.com,,finance@tanisitech.onmicrosoft.com,,,,2026-04-30 10:59:05.504298+00,2026-04-30 10:59:05.504298+00
+d0ec1d8f-f5ef-4cbc-9f01-f64c8fd48bae,HR,HR,hr.manager@tanisitech.onmicrosoft.com,,hr@tanisitech.onmicrosoft.com,,,,2026-04-30 10:59:05.504298+00,2026-04-30 10:59:05.504298+00

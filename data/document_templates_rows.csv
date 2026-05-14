@@ -1,0 +1,8 @@
+id,name,category,is_required,applies_to,description,created_at
+18f331fb-ab1a-40dd-bf81-6a3468030ff9,Government ID,Identity,true,"[""all""]","Passport, Aadhaar, or national ID",2026-04-30 10:59:05.504298+00
+3b5e3b62-e8e1-479b-b588-456e584167c7,Equipment Preference Form,IT,false,"[""all""]",Laptop and peripherals preference,2026-04-30 10:59:05.504298+00
+4ad9b173-7f73-40a3-aac8-b42baa2dd5c0,Signed Offer Letter,Legal,true,"[""all""]",Countersigned offer letter,2026-04-30 10:59:05.504298+00
+533ca3cc-60b2-4665-9050-4d865bf5758c,Bank/Payroll Details,Finance,true,"[""all""]",Bank account for payroll,2026-04-30 10:59:05.504298+00
+57f238d0-8cbc-4928-91d0-3180e451783e,Data Protection Acknowledgement,Compliance,true,"[""all""]",GDPR/data handling policy acceptance,2026-04-30 10:59:05.504298+00
+718c5a16-f96b-43ad-8e52-6c51e3c2d2dd,Emergency Contact Form,HR,true,"[""all""]",Emergency contact details,2026-04-30 10:59:05.504298+00
+99fdea18-5141-4eb4-bf05-f9cd344e1b7a,Remote Work Agreement,Legal,true,"[""all""]",Remote/hybrid work policy agreement,2026-04-30 10:59:05.504298+00

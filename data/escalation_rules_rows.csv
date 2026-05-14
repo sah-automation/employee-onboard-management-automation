@@ -1,0 +1,6 @@
+id,step_type,sla_hours,escalation_target_email,escalation_target_name,escalation_level,auto_approve_after_hours,is_active,created_at
+4fc745f3-ff68-4cc3-9d03-40766785fe9b,mgr_approval,16,sonugupta@tanisitech.onmicrosoft.com,System Admin,2,,true,2026-04-30 10:59:05.504298+00
+8d1f0225-553d-4259-86c5-e439e1f9a24c,mgr_approval,8,hr.director@tanisitech.onmicrosoft.com,HR Director,1,,true,2026-04-30 10:59:05.504298+00
+ab681e8d-bba9-4e61-8d89-8f3d21fcd0fa,hr_approval,24,hr.director@tanisitech.onmicrosoft.com,HR Director,1,,true,2026-04-30 10:59:05.504298+00
+b5a1eafe-629b-4a72-ad48-2367b62524fd,it_approval,8,sonugupta@tanisitech.onmicrosoft.com,System Admin,1,,true,2026-04-30 10:59:05.504298+00
+bade6f0c-ab96-4707-9486-e430634a6de2,hr_approval,36,sonugupta@tanisitech.onmicrosoft.com,System Admin,2,,true,2026-04-30 10:59:05.504298+00

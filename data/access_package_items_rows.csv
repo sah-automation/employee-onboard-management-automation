@@ -1,0 +1,39 @@
+id,package_id,resource_type,resource_id,resource_name,resource_url,action,is_required,notes
+0a0987c4-c385-40e8-a916-fb0c661fb782,4e1ebf5a-f566-40be-89d1-6bb93675c326,m365_group,4e809dd3-a3cd-492a-ba0c-235ed4f9c6af,All Staff,,member,true,
+0ce96b7c-5afd-449b-afe8-a62b7006f15e,58db9ff9-2693-4429-acf0-24c1b6e42a27,sharepoint_site,,Engineering Onboarding,,reader,true,
+1b6de918-7f1c-45b1-9d70-ebba61042239,fa4b5dfe-d112-4a75-8a4a-d834ec961380,m365_group,ea706e17-2122-4844-9eec-285e34c3405a,IT Team,,member,true,
+1bee7827-602c-4f9e-8895-9645c387b432,a938ccf9-34fe-424e-8e29-602919fded19,planner_plan,,Complete Marketing onboarding checklist,,contributor,true,
+2cb59474-8848-4979-958e-911cf8efcd79,58db9ff9-2693-4429-acf0-24c1b6e42a27,m365_group,4e809dd3-a3cd-492a-ba0c-235ed4f9c6af,All Staff,,member,true,Company-wide group
+335de8e9-bbbf-4eaf-84c8-33e4114652ff,694622ab-3f67-4a9c-a6eb-47c47fab51db,m365_group,43383dac-1284-4027-8997-10efca76f4f5,HR Team,,member,true,HR security group
+348e9dab-c213-4a49-ac61-e1c11a50004e,a938ccf9-34fe-424e-8e29-602919fded19,m365_group,a410a801-0769-4684-bb4e-e5bc20c0f9e0,Marketing Team,,member,true,
+349436d8-fc35-4491-914f-358c41ff60f4,a938ccf9-34fe-424e-8e29-602919fded19,m365_group,4e809dd3-a3cd-492a-ba0c-235ed4f9c6af,All Staff,,member,true,
+34c2b06d-1518-47c5-bb3e-69a6881db0d2,58db9ff9-2693-4429-acf0-24c1b6e42a27,planner_plan,,Set up local dev environment,,contributor,true,
+35bac825-9501-4649-a330-44540220e2ad,694622ab-3f67-4a9c-a6eb-47c47fab51db,planner_plan,,Complete HR onboarding checklist,,contributor,true,
+43950590-406c-4619-8cfd-02694b8dc3b4,4b77f4d1-6edd-4d90-9a3d-6e8993221465,m365_group,4e809dd3-a3cd-492a-ba0c-235ed4f9c6af,All Staff,,member,true,
+4e01b1a8-959c-4df3-955e-80051f2270a9,694622ab-3f67-4a9c-a6eb-47c47fab51db,teams_channel,43383dac-1284-4027-8997-10efca76f4f5,HR Team Channel,,member,true,HR Teams workspace
+4f4bafb0-001c-4e5a-8dbd-c30015a7ec76,58db9ff9-2693-4429-acf0-24c1b6e42a27,teams_channel,4c465e9f-efa4-47ee-8baa-8d94b0379230,General,,member,true,Company general channel
+53967d75-cb74-484f-b46c-687bfd959296,fa4b5dfe-d112-4a75-8a4a-d834ec961380,m365_group,4e809dd3-a3cd-492a-ba0c-235ed4f9c6af,All Staff,,member,true,
+573a1ab5-2264-4eeb-a6ca-cdc96761c378,4e1ebf5a-f566-40be-89d1-6bb93675c326,teams_channel,4c465e9f-efa4-47ee-8baa-8d94b0379230,General,,member,true,
+5c8e1d2d-570c-4c24-8ca0-0ba74f6a5ebd,4b77f4d1-6edd-4d90-9a3d-6e8993221465,planner_plan,,CRM system walkthrough,,contributor,true,
+5dcf1d86-7248-485b-82ee-6146f43be26d,58db9ff9-2693-4429-acf0-24c1b6e42a27,planner_plan,,Review engineering onboarding doc,,contributor,true,
+5ebd20dc-add4-42aa-a49f-ad2d30a6f665,58db9ff9-2693-4429-acf0-24c1b6e42a27,m365_group,d2036032-3d0a-4b59-b520-92178e343325,Engineering Team,,member,true,Main engineering security group
+7acb91a3-f1d6-4b18-8356-d69ce6d67ede,fa4b5dfe-d112-4a75-8a4a-d834ec961380,planner_plan,,IT guidelines review,,contributor,true,
+83d641e4-cd6a-4789-93dd-69e1a5b09a84,4b77f4d1-6edd-4d90-9a3d-6e8993221465,planner_plan,,Complete Sales onboarding checklist,,contributor,true,
+86a1ab20-1feb-4ce7-89ea-aeec49f9d6e8,694622ab-3f67-4a9c-a6eb-47c47fab51db,planner_plan,,Review HR policies and handbook,,contributor,true,
+8c2dca6b-fd10-4c82-b540-f4951c80b158,a938ccf9-34fe-424e-8e29-602919fded19,teams_channel,4c465e9f-efa4-47ee-8baa-8d94b0379230,General,,member,true,
+8cd7810d-92d8-451f-81fd-17b7d280585e,694622ab-3f67-4a9c-a6eb-47c47fab51db,teams_channel,4c465e9f-efa4-47ee-8baa-8d94b0379230,General,,member,true,Company general channel
+8d862dfd-fb93-452b-912b-e1950ce82c78,4e1ebf5a-f566-40be-89d1-6bb93675c326,planner_plan,,Complete Finance onboarding checklist,,contributor,true,
+974b9d53-f5b5-4a2a-ab98-2e59deba5a33,4b77f4d1-6edd-4d90-9a3d-6e8993221465,teams_channel,4c465e9f-efa4-47ee-8baa-8d94b0379230,General,,member,true,
+a6614a13-b0ea-4ceb-8314-67222e62932b,694622ab-3f67-4a9c-a6eb-47c47fab51db,m365_group,4e809dd3-a3cd-492a-ba0c-235ed4f9c6af,All Staff,,member,true,Company-wide group
+a6e52103-26de-47dd-81d9-bc8512be34e0,4e1ebf5a-f566-40be-89d1-6bb93675c326,teams_channel,4ab815db-418d-4a6c-b09b-f3bb79c1f2d7,Finance Channel,,member,true,
+bae04e47-3848-460e-bb60-7f84c13d587e,fa4b5dfe-d112-4a75-8a4a-d834ec961380,teams_channel,ea706e17-2122-4844-9eec-285e34c3405a,IT Channel,,member,true,
+cd111771-ca90-4b10-a408-af6af9b22646,4e1ebf5a-f566-40be-89d1-6bb93675c326,m365_group,4ab815db-418d-4a6c-b09b-f3bb79c1f2d7,Finance Team,,member,true,
+d2031b9a-4573-4d84-b729-137dd49b0a3c,fa4b5dfe-d112-4a75-8a4a-d834ec961380,teams_channel,4c465e9f-efa4-47ee-8baa-8d94b0379230,General,,member,true,
+dd52ca67-2a41-4c00-b457-3f5b1e025bf8,58db9ff9-2693-4429-acf0-24c1b6e42a27,teams_channel,d2036032-3d0a-4b59-b520-92178e343325,Engineering Team Channel,,member,true,Primary Teams workspace
+e13553d5-31d9-40ea-abfe-2e28ed6a93f8,4b77f4d1-6edd-4d90-9a3d-6e8993221465,m365_group,8a2fc810-da66-4994-8f1f-d2ae2c97b4ea,Sales Team,,member,true,
+e41a5777-a79c-4ab2-b98f-68051ce9c963,58db9ff9-2693-4429-acf0-24c1b6e42a27,planner_plan,,Complete IT setup checklist,,contributor,true,
+eaf6ff77-74a9-4c3f-b050-7d9d7dc6a7c7,4b77f4d1-6edd-4d90-9a3d-6e8993221465,teams_channel,8a2fc810-da66-4994-8f1f-d2ae2c97b4ea,Sales Channel,,member,true,
+ec60fd07-a3ec-4932-81d1-58ffc9182bae,a938ccf9-34fe-424e-8e29-602919fded19,planner_plan,,Brand and content guidelines review,,contributor,true,
+f00d7dd7-ac88-43f8-a810-edba039239f8,4e1ebf5a-f566-40be-89d1-6bb93675c326,planner_plan,,Review Finance policies,,contributor,true,
+f0292405-9b68-4b68-9350-c1c5cb3a5d22,fa4b5dfe-d112-4a75-8a4a-d834ec961380,planner_plan,,Complete IT onboarding checklist,,contributor,true,
+f3f6ad40-7a56-4399-b6b4-88fede2e8a6f,a938ccf9-34fe-424e-8e29-602919fded19,teams_channel,a410a801-0769-4684-bb4e-e5bc20c0f9e0,Marketing Channel,,member,true,
