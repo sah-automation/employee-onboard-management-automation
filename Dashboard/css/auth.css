@@ -1,0 +1,190 @@
+:root {
+  --bg: #0b1220;
+  --card: #111a2e;
+  --card2: #0f1728;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #4f46e5;
+  --accent2: #2563eb;
+  --border: rgba(255,255,255,.08);
+  --error: #ef4444;
+  --success: #22c55e;
+}
+
+.light-theme {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --card2: #f1f5f9;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: rgba(0,0,0,.1);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(79,70,229,.35), transparent 30%),
+    linear-gradient(180deg, #08101d, #0b1220 65%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.light-theme body {
+  background:
+    radial-gradient(circle at top, rgba(79,70,229,.12), transparent 30%),
+    linear-gradient(180deg, #f1f5f9, #f8fafc 65%);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(180deg, rgba(17,26,46,.96), rgba(15,23,40,.96));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.light-theme .auth-card {
+  background: white;
+  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: white;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.hero h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.hero p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.login-form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-size: .92rem;
+  color: #d1d5db;
+}
+
+.light-theme label { color: #4b5563; }
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0b1324;
+  color: var(--text);
+  outline: none;
+}
+
+.light-theme input { background: #f1f5f9; }
+
+input:focus {
+  border-color: rgba(79,70,229,.85);
+  box-shadow: 0 0 0 3px rgba(79,70,229,.18);
+}
+
+button {
+  margin-top: 4px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+.message {
+  min-height: 20px;
+  font-size: .92rem;
+  margin-top: 4px;
+}
+
+.message.error { color: var(--error); }
+.message.success { color: var(--success); }
+
+.footer-note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: .85rem;
+  text-align: center;
+}
+
+/* ── Theme Toggle (Login) ───────────────────────── */
+.auth-theme-toggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.theme-toggle-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .15s;
+}
+
+.theme-icon-light { display: none; }
+.light-theme .theme-icon-light { display: inline; }
+.light-theme .theme-icon-dark  { display: none; }
