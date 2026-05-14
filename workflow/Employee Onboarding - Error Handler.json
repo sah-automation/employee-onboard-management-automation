@@ -1,0 +1,239 @@
+{
+  "name": "Employee Onboarding - Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "061988cb-a405-4690-9b2a-cc814720f2ba",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const workflowName = $json.workflow?.name || \"unknown\";\nconst nodeName = $json.node?.name || \"unknown\";\nconst errorMessage = $json.error?.message || \"Unknown error\";\n\n// Classify severity by workflow name\nlet severity = \"medium\";\nif (workflowName.includes(\"WF-04\") || workflowName.includes(\"Provision\")) {\n  severity = \"critical\";\n} else if (workflowName.includes(\"WF-02\") || workflowName.includes(\"WF-03\")) {\n  severity = \"high\";\n} else if (workflowName.includes(\"WF-01\")) {\n  severity = \"high\";\n} else if (workflowName.includes(\"WF-06\")) {\n  severity = \"low\";\n}\n\nreturn [{\n  json: {\n    severity,\n    error_message: errorMessage,\n    stack_trace: $json.error?.stack || null,\n    n8n_workflow_id: $json.workflow?.id || null,\n    n8n_workflow_name: workflowName,\n    n8n_execution_id: $json.execution?.id || null,\n    node_name: nodeName,\n    request_id: $json.execution?.data?.resultData?.runData?.[\"WF-01 Set Request ID\"]?.[0]?.data?.main?.[0]?.[0]?.json?.request_id || null,\n    context: {\n      workflow: $json.workflow,\n      execution: $json.execution,\n      node: $json.node\n    }\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "ebfd7beb-f749-4be9-9e6a-94f266b0c12b",
+      "name": "Classify Severity"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "error_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "severity",
+              "fieldValue": "={{ $json.severity }}"
+            },
+            {
+              "fieldId": "error_message",
+              "fieldValue": "={{ $json.error_message }}"
+            },
+            {
+              "fieldId": "stack_trace",
+              "fieldValue": "={{ $json.stack_trace }}"
+            },
+            {
+              "fieldId": "n8n_workflow_id",
+              "fieldValue": "={{ $json.n8n_workflow_id }}"
+            },
+            {
+              "fieldId": "n8n_workflow_name",
+              "fieldValue": "={{ $json.n8n_workflow_name }}"
+            },
+            {
+              "fieldId": "n8n_execution_id",
+              "fieldValue": "={{ $json.n8n_execution_id }}"
+            },
+            {
+              "fieldId": "node_name",
+              "fieldValue": "={{ $json.node_name }}"
+            },
+            {
+              "fieldId": "context",
+              "fieldValue": "={{ $json.context }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "cc2fe52f-ce80-4f65-8eb4-ffa22ebd451b",
+      "name": "Log to Supabase error_log",
+      "credentials": {
+        "supabaseApi": {
+          "id": "deDRV9qenq7eU1rW",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "df922d81-4dae-4d10-9836-ab4054517498",
+              "leftValue": "={{ $json.severity }}",
+              "rightValue": "critical",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "907446cf-a430-427b-9248-87d3a1ad0653",
+              "leftValue": "={{ $json.severity }}",
+              "rightValue": "high",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        624,
+        0
+      ],
+      "id": "aeb44ef3-6ee9-4e0f-8daf-e05c451a524b",
+      "name": "Is severity critical or high?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.microsoft.com/v1.0/users/sonugupta@tanisitech.onmicrosoft.com/sendMail",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"message\": {\n    \"subject\": \"🚨 [{{ $json.severity | upper }}] n8n Workflow Error — {{ $json.n8n_workflow_name }}\",\n    \"body\": {\n      \"contentType\": \"Text\",\n      \"content\": \"WORKFLOW ERROR ALERT\\n\\nSeverity: {{ $json.severity }}\\nWorkflow: {{ $json.n8n_workflow_name }}\\nNode: {{ $json.node_name }}\\nError: {{ $json.error_message }}\\nExecution ID: {{ $json.n8n_execution_id }}\\n\\nAction Required: Review error_log in Supabase dashboard.\"\n    },\n    \"toRecipients\": [\n      { \"emailAddress\": { \"address\": \"sonugupta@tanisitech.onmicrosoft.com\" } }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        832,
+        -96
+      ],
+      "id": "1732945f-1e38-4f8c-8177-36f1d02ccb10",
+      "name": "Send Teams Alert",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "qUkZwiraf4sBiWMj",
+          "name": "Microsoft Graph API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        832,
+        96
+      ],
+      "id": "a251d6de-ac35-49ba-a4e8-cdf15f08549b",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Severity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Severity": {
+      "main": [
+        [
+          {
+            "node": "Log to Supabase error_log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log to Supabase error_log": {
+      "main": [
+        [
+          {
+            "node": "Is severity critical or high?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is severity critical or high?": {
+      "main": [
+        [
+          {
+            "node": "Send Teams Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "41e838af-5d1b-468e-a654-990a575815d2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "37ee74431af36e5f6e2177b0b6e0ba77f82f98e5f13559f1dbfcc6190c6b5601"
+  },
+  "id": "IbA5OXVKe35u63Ev",
+  "tags": [
+    {
+      "updatedAt": "2026-04-30T16:46:23.572Z",
+      "createdAt": "2026-04-30T16:46:23.572Z",
+      "id": "1ADO6NPJSQ9GhPYp",
+      "name": "Employee Onboarding"
+    }
+  ]
+}
