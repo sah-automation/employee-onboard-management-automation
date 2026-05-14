@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanisitech Onboarding | Login</title>
+  <link rel="stylesheet" href="./css/auth.css" />
+</head>
+<body>
+  <div class="auth-theme-toggle">
+    <button class="theme-toggle-btn" id="themeToggle" title="Toggle Light/Dark Theme">
+      <span class="theme-icon-dark">🌙</span>
+      <span class="theme-icon-light">☀️</span>
+    </button>
+  </div>
+
+  <main class="auth-shell">
+    <section class="auth-card">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div>
+          <h1>Tanisitech</h1>
+          <p>Employee Onboarding System</p>
+        </div>
+      </div>
+
+      <div class="hero">
+        <h2>Sign in to manage onboarding</h2>
+        <p>Secure access for HR, IT, Managers, and Admin users.</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <label>
+          Email
+          <input type="email" id="email" placeholder="you@tanisitech.onmicrosoft.com" required />
+        </label>
+
+        <label>
+          Password
+          <input type="password" id="password" placeholder="••••••••" required />
+        </label>
+
+        <button type="submit" id="loginBtn">Sign In</button>
+
+        <div id="loginMsg" class="message"></div>
+      </form>
+
+      <div class="footer-note">
+        <span>Tanisitech Onboarding Dashboard</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { login, redirectIfAuthed } from './js/auth.js';
+    import { showToast } from './js/ui.js';
+    import { initTheme, toggleTheme } from './js/theme.js';
+
+    initTheme();
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    await redirectIfAuthed();
+
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('loginMsg');
+    const btn = document.getElementById('loginBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      try {
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        await login(email, password);
+        showToast('Login successful', 'success');
+        window.location.href = './app.html';
+      } catch (error) {
+        msg.textContent = error.message || 'Login failed';
+        msg.className = 'message error';
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
+  </script>
+</body>
+</html>
